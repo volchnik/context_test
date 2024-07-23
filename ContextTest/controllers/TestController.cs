@@ -8,7 +8,7 @@ namespace ContextTest.controllers
     {
         private static readonly string[] TypeValues = new[]
         {
-            "default", "other"
+            "default", "other", "specific"
         };  
     
         [HttpGet("checktype")]
