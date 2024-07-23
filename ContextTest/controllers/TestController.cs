@@ -20,7 +20,19 @@ namespace ContextTest.controllers
         [HttpGet("gettypes")]
         public IActionResult GetTypes()
         {
-            return Ok(new { Message = $"All types: {string.Join(", ", TypeValues)}" });
+            return Ok(new { Message = $"Types: {string.Join(", ", TypeValues)}" });
+        }
+        
+        [HttpGet("gettypescount")]
+        public IActionResult GetTypesCount()
+        {
+            return Ok(new { Message = $"Types count: {TypeValues.Length}" });
+        }
+        
+        [HttpGet("gettypespattern")]
+        public IActionResult GetTypes([FromQuery] string pattern)
+        {
+            return Ok(new { Message = $"Types: {string.Join(", ", TypeValues.Where(x => x.Contains(pattern)))}" });
         }
     }
 }
